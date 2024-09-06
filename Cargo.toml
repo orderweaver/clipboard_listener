@@ -1,0 +1,20 @@
+[package]
+name = "clipboard_listener"
+version = "0.1.0"
+authors = ["orderweaver"]
+description = "A cross-platform Rust crate for listening to clipboard events."
+license = "MIT"
+edition = "2018"
+readme = "README.md"
+repository = "https://github.com/orderweaver/clipboard_listener"
+
+[target.'cfg(target_os = "windows")'.dependencies]
+winapi = { version = "0.3", features = ["winuser"] }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+x11-clipboard = "0.9"
+twox-hash = "1.6.3"
+
+[target.'cfg(target_os = "macos")'.dependencies]
+cocoa = "0.26.0"
+objc = "0.2"
